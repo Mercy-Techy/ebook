@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<main class="d-flex justify-content-center">
+    <form action="/admin/<% if (editing){ %>edit-book<% } else{ %>add-book<% } %>" class="form w-25 mt-5 rounded shadow p-3" method="POST">
+      <div class="text-center">
+        <legend><% if(editing){ %>Edit<%} else {%>Add<% } %> Book</legend>
+      </div>
+      <div class="mt-2">
+        <label class="d-block " for="title">Title</label>
+       <input class="w-100 px-2 mt-1 py-1" type="text" name="title" value="<%if(editing){%><%=book.title%><%}%>">
+      </div>
+      <div class="mt-2">
+        <label class="d-block " for="category">Category</label>
+       <input class="w-100 px-2 mt-1 py-1" type="text" name="category" value="<%if(editing){%><%=book.category%><%}%>">
+      </div>
+      <div class="mt-2">
+        <label class="d-block " for="noOfPages">Number of pages</label>
+       <input class="w-100 px-2 mt-1 py-1" type="text" name="noOfPages" value="<%if(editing){%><%=book.noOfPages%><%}%>">
+      </div>
+      <div class="mt-2">
+        <label class="d-block " for="price">Price</label>
+       <input class="w-100 px-2 mt-1 py-1" type="text" name="price" value="<%if(editing){%><%=book.price%><%}%>">
+      </div>
+      <div class="mt-2">
+        <label class="d-block " for="imgUrl">Image Url</label>
+       <input class="w-100 px-2 mt-1 py-1" type="text" name="imgUrl" value="<%if(editing){%><%=book.imgUrl%><%}%>">
+      </div>
+      <div class="mt-2">
+        <label for="Best Seller">Best Seller</label>
+       <input type="checkbox" name="check">
+      </div>
+      <% if(editing){ %>
+        <input type="hidden" name="formerCategory" value="<%=formerCategory%>">
+        <input type="hidden" name="bookId" value="<%=book.id%>">
+        <% } %>
+      <div class="text-center">
+         <button type="submit" class="btn shadow-sm mt-2"><% if(editing){ %>Edit<%} else {%>Add<% } %> Book</button>
+      </div>
+    </form>
+
+</main>
+<%- include('../includes/end.ejs') %>

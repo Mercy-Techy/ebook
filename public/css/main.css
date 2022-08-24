@@ -1,0 +1,36 @@
+nav ul li a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+nav,nav ul li a,.collor{
+    color: rgb(85, 84, 84) !important;
+}
+.bg-brown{
+   background-color:#fff8e4;
+   height: 35rem;
+   width: 100%;
+}
+.bg-brown  img{
+    border-radius: 10px;
+}
+.fonter{
+    font-weight:400 !important;
+    font-family: cursive;
+}
+img{
+    height: 20rem !important;
+}
+input{
+    outline: none;
+}
+.active{
+    border-bottom: 3px solid rgb(85, 84, 84);
+}
+.logo{
+    border-radius: 0 20 0 20 !important;
+}
+.home:hover{
+    border-bottom: 2px solid #ffc107;
+}

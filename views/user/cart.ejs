@@ -1,0 +1,33 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<main>
+         <% if(books && books.length > 0){ %>
+            <form action="/buy-books" class="container" method="POST">
+                  <div class="row">
+            <% for(let book of books){ %>
+               <div class="col-3">
+                  <div class="card p-2 m-2 border-0 w-100 shadow-sm collor">
+               <img src="<%= book.imgUrl %>" alt="">
+               <h5 class="card.title fw-bold text-capitalize mt-1"><%= book.title %></h5>
+               <p class="fw-bold"><span>&#x20A6</span><%= book.price %></p>
+               <div class="d-flex">
+                  <input type="hidden" value="<%= book.id %>" name="bookId">
+                  <input type="hidden" value="<%= book.category %>" name="bookCategory">
+                  <a href="/deleteCartItem/<%=book.id%>" class="btn bg-white shadow-sm ">Delete</a>
+               </div>
+            </div>
+               </div>
+               <% } %>
+            </div>
+            <div class="text-center">
+            <button class="btn bg-dark text-white w-25 my-5">Order</button>
+            </div>
+         </form>
+            <%}else{%>
+                <div class="collor container-fluid mt-5">
+                    <h1>Their Are no books In your Cart!</h1>
+                <h4>If you would like to add, please visit the <a href="/" class="text-decoration-none text-warning home">home page</a></h4>
+                </div>
+                <%}%>
+</main>
+<%- include('../includes/end.ejs') %>

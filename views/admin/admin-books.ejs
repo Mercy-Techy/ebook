@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<main>
+   <div class="mx-5  mt-5">
+      <div>
+         <% const findEmptyObject = Object.keys(books) %>
+         <% if(books && findEmptyObject.length > 0){ %>
+         <% for(let keys of findEmptyObject){ %>
+            <div class="bg-white shadow-sm rounded p-3 mt-3">
+         <h2 class="collor text-capitalize container"><%= keys %> <span class="display-6"> &#8594</span></h2>
+         <% let bookArray = books[keys] %>
+        <div class="container">
+            <div class="row">
+            <% for(let book of bookArray){ %>
+            <div class="col-3">
+               <div class="card p-2 m-2 w-100 border-0 shadow-sm collor">
+               <img src="<%= book.imgUrl %>" alt="">
+               <h5 class="card.title fw-bold text-capitalize mt-1"><%= book.title %></h5>
+               <p class="fw-bold"><span>&#x20A6</span><%= book.price %></p>
+               <div class="d-flex">
+                   <a href="/admin/edit-book/<%= book.id %>/<%= book.category %>?edit=true" class="btn bg-white shadow-sm">Edit</a>
+                   <form action="/admin/delete-book" method="POST">
+                     <input type="hidden" value="<%= book.id %>" name="bookId">
+                     <input type="hidden" value="<%= book.category %>" name="bookCategory">
+                   <button class="btn bg-white mx-2 shadow-sm">Delete</button>
+                  </form>
+               </div>
+            </div>
+            </div>
+            <% } %>
+         </div>
+        </div>
+         </div>
+         <% } %>
+         <% }else{ %>
+         <h1 class="collor">Books are not Available, Visit <a href="/admin/add-book" class="text-decoration-none text-warning home">Add book</a> to add product</h1>
+         <% } %>
+      </div>
+   </div>
+
+</main>
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,29 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<main class="d-flex justify-content-center">
+    <% if(getting){ %>
+        <form method="POST" action="/receipt" class="w-100 container">
+        <div class="row">
+            <% for(let book of books){ %>
+            <div class="col-3">
+                <div class="card p-2 m-2 border-0 w-100 shadow-sm collor">
+               <img src="<%= book.imgUrl %>" alt="">
+               <h5 class="fw-bold text-capitalize mt-1"><%= book.title %></h5>
+               <p class="fw-bold"><span>&#x20A6</span><%= book.price %></p>
+            </div>
+            </div>
+            <% } %>
+        </div>
+            <div class="text-center">
+                <div class="text-center display-6 collor my-4">Total Price: <%= totalPrice %></div>
+            <button class="text-center btn bg-dark text-white w-25 fw-bold p-2"> Buy Now</button>
+            </div>
+    </form>
+        <% }else{ %>
+            <form class="text-center">
+            <div class="collor display-1">Thanks for your purchase! <br> we love you!</div>
+            </form>
+            <% } %>
+
+</main>
+<%- include('../includes/end.ejs') %>

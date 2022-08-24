@@ -1,0 +1,22 @@
+<header>
+        <nav class="d-flex justify-content-between px-5 py-2 " >
+                <span class="display-6 fonter px-1 text-warning">Anora</span>
+            <ul class="d-flex justify-content-around pt-3 px-5 mx-5 fw-bold">
+                <li>
+                    <a href="/" class="<%= path === '/' ? 'active' :'' %> px-5 pb-1">Home</a>
+                </li>
+                <li>
+                    <a href="/book-list" class="<%= path === '/book-list' ? 'active' :'' %> px-5 pb-1">Book List</a>
+                </li>
+                <li>
+                    <a href="/cart" class="<%= path === '/cart' ? 'active' :'' %> px-5 pb-1">Cart</a>
+                </li>
+                <li>
+                    <a href="/admin/add-book" class="<%= path === '/admin-add-book' ? 'active' :'' %> px-5 pb-1">Add Book</a>
+                </li>
+                <li>
+                    <a href="/admin/admin-books" class="<%= path === '/admin-books' ? 'active' :'' %> px-5 pb-1">Admin</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
