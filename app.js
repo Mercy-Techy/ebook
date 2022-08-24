@@ -1,4 +1,5 @@
 const express = require('express')
+const port = process.env.PORT || 5000
 
 const bodyParser = require('body-parser')
 
@@ -22,4 +23,4 @@ app.use('/admin', adminRouter)
 
 app.use(userRouter)
 
-app.listen(5000)
+app.listen(port)
